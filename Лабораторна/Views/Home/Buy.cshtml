@@ -6,23 +6,16 @@
 		<h3>Форма оформлення покупки</h3>
 		<form method="post">
 			<input type="hidden" value="@ViewBag.ProductId" name="ProductId" />
-			<table>
-				<tr>
-					<td><p>Введіть своє ім'я </p></td>
-					<td><input type="text" name="Person" /> </td>
-				</tr>
-				<tr>
-					<td><p>Введіть адресу :</p></td>
-					<td>
-						<input type="text" name="Address" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="submit" value="Відправити" />
-					</td>
-					<td></td>
-				</tr>
-			</table>
+				<div class="mb-3">
+					<label for="Person" class="form-label">Введіть своє ім'я</label>
+					<input type="text" name="Person" id="Person" class="form-control" />
+				</div>
+				<div class="mb-3">
+					<label for="Address" class="form-label">Введіть адресу :</label>
+					<input type="text" name="Address" id="Address" class="form-control" />
+				</div>
+				<div class="mb-3">
+					<input type="submit" value="Відправити" class="btn btn-primary" />
+				</div>
 		</form>
 	</div>
