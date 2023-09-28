@@ -17,20 +17,26 @@ namespace Лабораторна.Controllers
 
         // GET: /Home/Buy/{id}
         [HttpGet]
-        public IActionResult Buy(int id) 
+        public IActionResult Buy(int id)
         {
             ViewBag.ProductId = id;
             return View();
         }
 
         [HttpPost]
-        public string Buy(Order order) {
+        public IActionResult Buy(Order order) {
             order.Date = DateTime.Now;
 
             db.Orders.Add(order);
             db.SaveChanges();
 
-            return "Дякуюємо," + order.Person + ", за покупку!";
+            return RedirectToAction("Confirm", "Home", new { Person = order.Person });
         }
-    }
+
+        public IActionResult Confirm(string Person)
+        {
+			ViewBag.Person = Person;
+			return View();
+		}
+	}
 }
