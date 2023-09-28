@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+        <div>
+            <h3>Товари</h3>
+            <table>
+                <tr>
+                   <td><p>Назва товару</p></td>
+                   <td><p>Кількість</p></td>
+                   <td><p>Ціна</p></td>
+                   <td></td>
+                </tr>
+
+                @foreach(var product in ViewBag.Products)
+                {
+                    <tr>
+                        <td><p>@product.Name</p></td>
+                        <td><p>@product.Stock</p></td>
+                        <td><p>@product.Price</p></td>
+                        <td><p><a href="/Home/Buy/@product.Id">Купити</a></p></td>
+                    </tr>
+                }
+            </table>
+        </div>
+
